@@ -32,7 +32,7 @@ module Pushbullet
         if response.code >= 400 && response.code <= 500
           fail Pushbullet::Error, JSON.parse(response)['error']['message']
         else
-          response.return!(request, result, &block)
+          response.return!(&block)
         end
       end
     end
